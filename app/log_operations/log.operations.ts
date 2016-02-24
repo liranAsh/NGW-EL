@@ -20,34 +20,25 @@ import {HTTP_PROVIDERS}    from 'angular2/http';
 export class LogOperations implements OnInit {
 
     // Data members
-    public arrData: IDataTable[];
     public arrBackendData: IDataTable[];
 
     constructor(private http: Http) {
-        this.arrData = [];
-        this.addGarbageData();
+        this.arrBackendData = [];
     }
 
     ngOnInit():any {
-        debugger;
+
         this.http.get("http://localhost:60416/api/values")
-            .map(() => function(res){
+            .map(res => {
                 debugger;
-                <string[]> res.json();
-            }).catch(this.handleError)
-            .subscribe(() => function(data)
-            {
+                return <IDataTable[]> res.json();
+            })
+            .catch(this.handleError)
+            .subscribe(res => {
                 debugger;
-                for (var i:number = 0; i < data.length; i++)
-                {
-                    this.arrBackendDatas.push(
-                        {
-                            operationName: data[i],
-                            date: data[i]
-                        }
-                    );
-                }
-                this.arrBackendData = data
+                this.arrBackendData = res;
+                document.querySelector('table-wrapper')['$'].test.reload();
+                console.log(res);
             });
     }
 
@@ -57,29 +48,5 @@ export class LogOperations implements OnInit {
         // instead of just logging it to the console
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');
-    }
-
-    getSignleGarbageData(data: IDataTable): IDataTable {
-        var tempData = <IDataTable>{};
-
-        tempData.operationName = data.operationName;
-        tempData.date = data.date;
-
-        return tempData;
-    }
-
-    addGarbageData() {
-
-        var data1 = this.getSignleGarbageData({
-            operationName: "Liran",
-            date: "1316546"
-        });
-
-        var data2 = this.getSignleGarbageData({
-            operationName: "Ziv",
-            date: "123123"
-        })
-
-        this.arrData.push(data1, data2);
     }
 }

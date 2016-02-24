@@ -5,7 +5,7 @@
 <dom-module id="table-wrapper">
 
     <template>
-        <paper-datatable data="{{data}}" selectable multi-selection>
+        <paper-datatable id=""t" data="{{data}}" selectable multi-selection>
             <paper-datatable-column header="Name" property="operationName" sortable>
             </paper-datatable-column>
             <paper-datatable-column header="Date" property="date" sortable>
@@ -18,6 +18,9 @@
         Polymer({
 
             is: 'table-wrapper',
+            getTable: function() {
+                return this.$.contains.querySelector('.');
+            },
 
             properties : {
                 data: {

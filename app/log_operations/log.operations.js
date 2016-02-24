@@ -28,26 +28,22 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
             LogOperations = (function () {
                 function LogOperations(http) {
                     this.http = http;
-                    this.arrData = [];
-                    this.addGarbageData();
+                    this.arrBackendData = [];
                 }
                 LogOperations.prototype.ngOnInit = function () {
-                    debugger;
+                    var _this = this;
                     this.http.get("http://localhost:60416/api/values")
-                        .map(function () { return function (res) {
+                        .map(function (res) {
                         debugger;
-                        res.json();
-                    }; }).catch(this.handleError)
-                        .subscribe(function () { return function (data) {
+                        return res.json();
+                    })
+                        .catch(this.handleError)
+                        .subscribe(function (res) {
                         debugger;
-                        for (var i = 0; i < data.length; i++) {
-                            this.arrBackendDatas.push({
-                                operationName: data[i],
-                                date: data[i]
-                            });
-                        }
-                        this.arrBackendData = data;
-                    }; });
+                        _this.arrBackendData = res;
+                        document.querySelector('table-wrapper')['$'].test.reload();
+                        console.log(res);
+                    });
                 };
                 LogOperations.prototype.handleError = function (error) {
                     debugger;
@@ -55,23 +51,6 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                     // instead of just logging it to the console
                     console.error(error);
                     return Observable_1.Observable.throw(error.json().error || 'Server error');
-                };
-                LogOperations.prototype.getSignleGarbageData = function (data) {
-                    var tempData = {};
-                    tempData.operationName = data.operationName;
-                    tempData.date = data.date;
-                    return tempData;
-                };
-                LogOperations.prototype.addGarbageData = function () {
-                    var data1 = this.getSignleGarbageData({
-                        operationName: "Liran",
-                        date: "1316546"
-                    });
-                    var data2 = this.getSignleGarbageData({
-                        operationName: "Ziv",
-                        date: "123123"
-                    });
-                    this.arrData.push(data1, data2);
                 };
                 LogOperations = __decorate([
                     core_1.Component({
