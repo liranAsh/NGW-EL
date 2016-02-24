@@ -23,7 +23,16 @@
                 data: {
                     type: Array,
                     notify: true
+                },
+                table: {
+                    type: Object,
+                    computed: 'getTableElement()'
                 }
+            },
+            getTableElement : function ()
+            {
+                debugger;
+                return this.shadowRoot.querySelector("paper-datatable");
             }
 
         });

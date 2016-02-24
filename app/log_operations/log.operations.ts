@@ -9,54 +9,61 @@ import {OnInit} from "../../node_modules/angular2/src/core/linker/interfaces";
 import {Http, Response} from 'angular2/http';
 import {Observable}     from 'rxjs/Observable';
 import {HTTP_PROVIDERS}    from 'angular2/http';
+import {BrowserDomAdapter} from 'angular2/platform/browser'
 
 @Component({
     selector: 'log-operation',
     templateUrl: 'app/log_operations/log.operations.html',
     providers: [
-        HTTP_PROVIDERS
+        HTTP_PROVIDERS,
+        BrowserDomAdapter
     ]
 })
 export class LogOperations implements OnInit {
 
     // Data members
-    public arrData: IDataTable[];
-    public arrBackendData: IDataTable[];
+    public arrData:IDataTable[];
+    public arrBackendData:IDataTable[];
 
-    constructor(private http: Http) {
+    constructor(private http:Http, private _dom: BrowserDomAdapter) {
         this.arrData = [];
-        this.addGarbageData();
+        this.arrBackendData = [];
     }
 
     ngOnInit():any {
         debugger;
+
         this.http.get("http://localhost:60416/api/values")
-            .map(() => function(res){
-                debugger;
-                <string[]> res.json();
-            }).catch(this.handleError)
-            .subscribe(() => function(data)
-            {
-                debugger;
-                for (var i:number = 0; i < data.length; i++)
-                {
-                    this.arrBackendDatas.push(
-                        {
-                            operationName: data[i],
-                            date: data[i]
-                        }
-                    );
-                }
-                this.arrBackendData = data
-            });
+            .map(res => <string[]>res.json()).
+        //do(data => console.log(data)).
+        subscribe((res) => this.updateTableWithServerData(res));
     }
 
-    private handleError (error: Response) {
+    private handleError(error:Response) {
         debugger;
         // in a real world app, we may send the error to some remote logging infrastructure
         // instead of just logging it to the console
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');
+    }
+
+    updateTableWithServerData(data:string[]) {
+        debugger;
+        for (var i = 0; i < data.length; i++)
+        {
+            var tempTableData : IDataTable;
+
+            tempTableData =
+            {
+                operationName : data[i],
+                date : data[i]
+            };
+
+            this.arrBackendData.push(tempTableData);
+        }
+
+        var domIWant : any = this._dom.query('table-wrapper');
+        domIWant.getTableElement().reload();
     }
 
     getSignleGarbageData(data: IDataTable): IDataTable {
@@ -69,7 +76,7 @@ export class LogOperations implements OnInit {
     }
 
     addGarbageData() {
-
+        debugger;
         var data1 = this.getSignleGarbageData({
             operationName: "Liran",
             date: "1316546"
