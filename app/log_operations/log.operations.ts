@@ -9,84 +9,46 @@ import {OnInit} from "../../node_modules/angular2/src/core/linker/interfaces";
 import {Http, Response} from 'angular2/http';
 import {Observable}     from 'rxjs/Observable';
 import {HTTP_PROVIDERS}    from 'angular2/http';
-import {BrowserDomAdapter} from 'angular2/platform/browser'
 
 @Component({
     selector: 'log-operation',
     templateUrl: 'app/log_operations/log.operations.html',
     providers: [
-        HTTP_PROVIDERS,
-        BrowserDomAdapter
+        HTTP_PROVIDERS
     ]
 })
 export class LogOperations implements OnInit {
 
     // Data members
-    public arrData:IDataTable[];
-    public arrBackendData:IDataTable[];
+    public arrBackendData: IDataTable[];
 
-    constructor(private http:Http, private _dom: BrowserDomAdapter) {
-        this.arrData = [];
+    constructor(private http: Http) {
         this.arrBackendData = [];
     }
 
     ngOnInit():any {
-        debugger;
 
         this.http.get("http://localhost:60416/api/values")
-            .map(res => <string[]>res.json()).
-        //do(data => console.log(data)).
-        subscribe((res) => this.updateTableWithServerData(res));
+            .map(res => {
+                debugger;
+                return <IDataTable[]> res.json();
+            })
+            .catch(this.handleError)
+            .subscribe(res => {
+                debugger;
+                this.arrBackendData = res;
+                debugger;
+                var tableWrapper : any = document.querySelector('table-wrapper');
+                tableWrapper.getTableElement().reload();
+                console.log(res);
+            });
     }
 
-    private handleError(error:Response) {
+    private handleError (error: Response) {
         debugger;
         // in a real world app, we may send the error to some remote logging infrastructure
         // instead of just logging it to the console
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');
-    }
-
-    updateTableWithServerData(data:string[]) {
-        debugger;
-        for (var i = 0; i < data.length; i++)
-        {
-            var tempTableData : IDataTable;
-
-            tempTableData =
-            {
-                operationName : data[i],
-                date : data[i]
-            };
-
-            this.arrBackendData.push(tempTableData);
-        }
-
-        var domIWant : any = this._dom.query('table-wrapper');
-        domIWant.getTableElement().reload();
-    }
-
-    getSignleGarbageData(data: IDataTable): IDataTable {
-        var tempData = <IDataTable>{};
-
-        tempData.operationName = data.operationName;
-        tempData.date = data.date;
-
-        return tempData;
-    }
-
-    addGarbageData() {
-        debugger;
-        var data1 = this.getSignleGarbageData({
-            operationName: "Liran",
-            date: "1316546"
-        });
-
-        var data2 = this.getSignleGarbageData({
-            operationName: "Ziv",
-            date: "123123"
-        })
-
-        this.arrData.push(data1, data2);
     }
 }
