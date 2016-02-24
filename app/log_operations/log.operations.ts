@@ -34,13 +34,13 @@ export class LogOperations {
 
         var data1 = this.getSignleGarbageData({
             operationName: "Liran",
-            date: 1316546
+            date: new Date(1316546).toDateString()
         });
 
         var data2 = this.getSignleGarbageData({
             operationName: "Ziv",
-            date: 498215
-        })
+            date: new Date(498215).toDateString()
+        });
 
         this.arrData.push(data1, data2);
     }

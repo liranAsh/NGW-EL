@@ -4,5 +4,5 @@
 export interface IDataTable {
 
     operationName: string;
-    date:number;
+    date:string;
 }
