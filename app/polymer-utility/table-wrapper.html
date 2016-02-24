@@ -1,0 +1,33 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-datatable/paper-datatable.html">
+<link rel="import" href="../../bower_components/paper-datatable/paper-datatable-column.html">
+
+<dom-module id="table-wrapper">
+
+    <template>
+        <paper-datatable data="{{data}}" selectable multi-selection>
+            <paper-datatable-column header="Name" property="operationName" sortable>
+            </paper-datatable-column>
+            <paper-datatable-column header="Date" property="date" sortable>
+            </paper-datatable-column>
+        </paper-datatable>
+    </template>
+
+    <script>
+
+        Polymer({
+
+            is: 'table-wrapper',
+
+            properties : {
+                data: {
+                    type: Array,
+                    notify: true
+                }
+            }
+
+        });
+
+    </script>
+
+</dom-module>
