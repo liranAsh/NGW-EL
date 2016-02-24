@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core';
 import {OnInit} from 'angular2/core';
 import {DrawerPanelComponent} from './drawer-panel.component';
+import 'rxjs/Rx';
 
 @Component({
     selector: 'my-app',

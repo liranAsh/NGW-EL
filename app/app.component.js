@@ -1,4 +1,4 @@
-System.register(['angular2/core', './drawer-panel.component'], function(exports_1) {
+System.register(['angular2/core', './drawer-panel.component', 'rxjs/Rx'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
         switch (arguments.length) {
@@ -19,7 +19,8 @@ System.register(['angular2/core', './drawer-panel.component'], function(exports_
             },
             function (drawer_panel_component_1_1) {
                 drawer_panel_component_1 = drawer_panel_component_1_1;
-            }],
+            },
+            function (_1) {}],
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
