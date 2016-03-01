@@ -1,4 +1,4 @@
-System.register(['angular2/core', './main_page/main-page.component', 'rxjs/Rx'], function(exports_1) {
+System.register(['angular2/core'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
         switch (arguments.length) {
@@ -10,35 +10,28 @@ System.register(['angular2/core', './main_page/main-page.component', 'rxjs/Rx'],
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, main_page_component_1;
-    var AppComponent;
+    var core_1;
+    var WindowButtonsComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (main_page_component_1_1) {
-                main_page_component_1 = main_page_component_1_1;
-            },
-            function (_1) {}],
+            }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            WindowButtonsComponent = (function () {
+                function WindowButtonsComponent() {
                 }
-                AppComponent.prototype.ngOnInit = function () {
-                };
-                AppComponent = __decorate([
+                WindowButtonsComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
-                        template: '<main-page></main-page>',
-                        directives: [main_page_component_1.MainPageComponent]
+                        selector: 'window-buttons',
+                        templateUrl: 'app/window_buttons/window_buttons.component.html'
                     }), 
                     __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                ], WindowButtonsComponent);
+                return WindowButtonsComponent;
             })();
-            exports_1("AppComponent", AppComponent);
+            exports_1("WindowButtonsComponent", WindowButtonsComponent);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=window_buttons.component.js.map

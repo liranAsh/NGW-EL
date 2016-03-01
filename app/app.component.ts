@@ -1,12 +1,12 @@
 import {Component} from 'angular2/core';
 import {OnInit} from 'angular2/core';
-import {DrawerPanelComponent} from './drawer-panel.component';
+import {MainPageComponent} from './main_page/main-page.component';
 import 'rxjs/Rx';
 
 @Component({
     selector: 'my-app',
-    template: '<ngw-drawer-panel></ngw-drawer-panel>',
-    directives:[DrawerPanelComponent]
+    template: '<main-page></main-page>',
+    directives:[MainPageComponent]
 })
 export class AppComponent implements OnInit{
     ngOnInit():any {

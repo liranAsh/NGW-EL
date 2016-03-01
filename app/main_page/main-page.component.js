@@ -1,4 +1,4 @@
-System.register(['angular2/core', './main_page/main-page.component', 'rxjs/Rx'], function(exports_1) {
+System.register(['angular2/core', '../drawer-panel/drawer-panel.component', '../activity_panel/activity-panel.component', 'rxjs/Rx'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
         switch (arguments.length) {
@@ -10,35 +10,38 @@ System.register(['angular2/core', './main_page/main-page.component', 'rxjs/Rx'],
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, main_page_component_1;
-    var AppComponent;
+    var core_1, drawer_panel_component_1, activity_panel_component_1;
+    var MainPageComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (main_page_component_1_1) {
-                main_page_component_1 = main_page_component_1_1;
+            function (drawer_panel_component_1_1) {
+                drawer_panel_component_1 = drawer_panel_component_1_1;
+            },
+            function (activity_panel_component_1_1) {
+                activity_panel_component_1 = activity_panel_component_1_1;
             },
             function (_1) {}],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            MainPageComponent = (function () {
+                function MainPageComponent() {
                 }
-                AppComponent.prototype.ngOnInit = function () {
+                MainPageComponent.prototype.ngOnInit = function () {
                 };
-                AppComponent = __decorate([
+                MainPageComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
-                        template: '<main-page></main-page>',
-                        directives: [main_page_component_1.MainPageComponent]
+                        selector: 'main-page',
+                        templateUrl: 'app/main_page/main-page.component.html',
+                        directives: [drawer_panel_component_1.DrawerPanelComponent, activity_panel_component_1.ActivityPanelComponent]
                     }), 
                     __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                ], MainPageComponent);
+                return MainPageComponent;
             })();
-            exports_1("AppComponent", AppComponent);
+            exports_1("MainPageComponent", MainPageComponent);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=main-page.component.js.map
