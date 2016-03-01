@@ -24,7 +24,8 @@ System.register(['angular2/core'], function(exports_1) {
                 WindowButtonsComponent = __decorate([
                     core_1.Component({
                         selector: 'window-buttons',
-                        templateUrl: 'app/window_buttons/window_buttons.component.html'
+                        templateUrl: 'app/window_buttons/window_buttons.component.html',
+                        styles: ["\n        .flexbox-container {\n            display: -ms-flexbox;\n            display: -webkit-flex;\n            display: flex;\n\n            -ms-flex-align: center;\n            -webkit-align-items: center;\n            -webkit-box-align: center;\n\n            align-items: center;\n        }\n    "]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], WindowButtonsComponent);
