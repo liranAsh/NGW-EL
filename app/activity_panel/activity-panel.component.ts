@@ -2,7 +2,8 @@
  * Created by Liran on 01/03/2016.
  */
 import {Component} from 'angular2/core';
-import {WindowButtonsComponent} from  '../window_buttons/window_buttons.component'
+import {WindowButtonsComponent} from  '../window_buttons/window_buttons.component';
+import {ActivityService} from '../services/activity_service';
 
 @Component({
     selector: 'activity-panel',
@@ -12,7 +13,7 @@ import {WindowButtonsComponent} from  '../window_buttons/window_buttons.componen
     .topPanel {
         position: fixed;
         width: 100vw;
-        height: 4.5vh;
+        height: 5.5vh;
         background-color: #1A237E;
         opacity: 0.9;
         padding: 0;
@@ -23,6 +24,19 @@ import {WindowButtonsComponent} from  '../window_buttons/window_buttons.componen
     `]
 })
 export class ActivityPanelComponent {
+    arrActivityMissions: any;
+    example: any;
 
+    constructor(activityService: ActivityService) {
+        this.arrActivityMissions = activityService.getActivityMissions();
+        this.example = [
+            {
+                id: "mission1",
+                iconClass: "zmdi zmdi-flower-alt"
+            }
+        ]
+
+        debugger;
+    }
 
 }

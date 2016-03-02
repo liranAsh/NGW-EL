@@ -2,8 +2,8 @@
 <div class="layout horizontal">
 
     <div class="flex-3"></div>
-    <i class="flex-3 center zmdi zmdi-window-minimize"></i>
-    <i class="flex-3 zmdi zmdi-window-restore"></i>
-    <i class="flex-3 zmdi zmdi-hc-1x zmdi-close"></i>
+    <i (click)="minimize()" class="flex-3 center zmdi zmdi-window-minimize"></i>
+    <i (click)="toggleResize()" class="flex-3 zmdi zmdi-window-restore"></i>
+    <i (click)="close()" class="flex-3 zmdi zmdi-hc-1x zmdi-close"></i>
 
 </div>
