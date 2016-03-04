@@ -7,12 +7,17 @@ export class MenuItem {
     bIsCollapse: boolean;
     link: string;
     displayText: string;
+    menuItems: Array<MenuItem>;
 
-    constructor(displayText:string, bIsCollapse:boolean, link?: string, iconName?:string) {
+    constructor(displayText:string, bIsCollapse:boolean, iconName?:string, link?: string) {
 
         this.displayText = displayText;
         this.bIsCollapse = bIsCollapse;
         this.link = link;
         this.iconName = iconName;
+    }
+
+    addMenuItem(MenuItem: item) {
+        this.menuItems.push(item);
     }
 }

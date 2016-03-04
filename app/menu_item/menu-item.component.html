@@ -7,3 +7,9 @@
         </paper-icon-item>
     </a>
 </div>
+
+<div *ngIf="item.bIsCollapse">
+    <paper-collapse-item icon="icons:{{item.iconName}}" header="Item 1" opened>
+        Lots of very interesting content.
+    </paper-collapse-item>
+</div>

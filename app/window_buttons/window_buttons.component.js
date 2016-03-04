@@ -17,10 +17,9 @@ System.register(['angular2/core'], function(exports_1) {
             }],
         execute: function() {
             WindowButtonsComponent = (function () {
-                //browserWindowInstance : any;
                 function WindowButtonsComponent() {
-                    this.browserWindowInstance = require('remote').getCurrentWindow();
-                    //this.browserWindowInstance = {};
+                    //this.browserWindowInstance = require('remote').getCurrentWindow();
+                    this.browserWindowInstance = {};
                 }
                 WindowButtonsComponent.prototype.toggleResize = function () {
                     debugger;

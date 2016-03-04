@@ -18,12 +18,12 @@ import BrowserWindow = Electron.BrowserWindow;
 })
 export class WindowButtonsComponent {
 
-    browserWindowInstance : BrowserWindow;
-    //browserWindowInstance : any;
+    //browserWindowInstance : BrowserWindow;
+    browserWindowInstance : any;
 
     constructor() {
-        this.browserWindowInstance = require('remote').getCurrentWindow();
-        //this.browserWindowInstance = {};
+        //this.browserWindowInstance = require('remote').getCurrentWindow();
+        this.browserWindowInstance = {};
     }
 
     toggleResize() : void {

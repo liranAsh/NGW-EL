@@ -46,11 +46,12 @@ System.register(['angular2/core', '../activity_panel/activity-panel.component', 
                 };
                 DrawerPanelComponent.prototype.initialCategories = function () {
                     this.categories = [];
-                    var item1 = new MenuItem_1.MenuItem("inbox", false, "#inbox", "inbox");
-                    var item2 = new MenuItem_1.MenuItem("star", false, "#star", "star");
-                    var item3 = new MenuItem_1.MenuItem("Alphonso Engelking", false, "#avatarblue", "inbox");
-                    var item4 = new MenuItem_1.MenuItem("Angela Decker", false, "#avatar", "star");
-                    this.categories.push(item1, item2, item3, item4);
+                    var item1 = new MenuItem_1.MenuItem("start", false, "inbox", "#start");
+                    var item2 = new MenuItem_1.MenuItem("machines", false, "star", "#machines");
+                    var item3 = new MenuItem_1.MenuItem("last missions", true, "inbox");
+                    var item4 = new MenuItem_1.MenuItem("last missions", true, "inbox");
+                    var item5 = new MenuItem_1.MenuItem("Angela Decker", false, "star", "#avatar");
+                    this.categories.push(item1, item2, item3, item4, item5);
                 };
                 DrawerPanelComponent = __decorate([
                     core_1.Component({

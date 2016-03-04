@@ -35,11 +35,12 @@ export class DrawerPanelComponent{
 
     initialCategories() {
         this.categories = [];
-        var item1: MenuItem = new MenuItem("inbox", false, "#inbox", "inbox");
-        var item2: MenuItem = new MenuItem("star", false, "#star", "star");
-        var item3: MenuItem = new MenuItem("Alphonso Engelking", false, "#avatarblue", "inbox");
-        var item4: MenuItem = new MenuItem("Angela Decker", false, "#avatar", "star");
+        var item1: MenuItem = new MenuItem("start", false, "inbox", "#start");
+        var item2: MenuItem = new MenuItem("machines", false, "star", "#machines");
+        var item3: MenuItem = new MenuItem("last missions", true, "inbox");
+        var item4: MenuItem = new MenuItem("last missions", true, "inbox");
+        var item5: MenuItem = new MenuItem("Angela Decker", false, "star", "#avatar");
 
-        this.categories.push(item1, item2, item3, item4);
+        this.categories.push(item1, item2, item3, item4, item5);
     }
 }
