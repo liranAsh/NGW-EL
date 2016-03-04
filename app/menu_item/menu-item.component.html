@@ -1,0 +1,9 @@
+<div *ngIf="!item.bIsCollapse">
+    <a class="paper-item-link" href="{{item.link}}" tabindex="-1">
+        <paper-icon-item>
+            <paper-ripple></paper-ripple>
+            <iron-icon icon="{{item.iconName}}" item-icon></iron-icon>
+            {{item.displayText}}
+        </paper-icon-item>
+    </a>
+</div>

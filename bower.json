@@ -43,6 +43,8 @@
     "paper-datatable": "^0.9.8",
     "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#1.0.0",
     "paper-menu": "PolymerElements/paper-menu#1.0.0",
-    "paper-progress": "PolymerElements/paper-progress#1.0.0"
+    "paper-progress": "PolymerElements/paper-progress#1.0.0",
+    "polymer-slidenav": "^0.1.7",
+    "paper-material": "PolymerElements/paper-material#1.0.0"
   }
 }

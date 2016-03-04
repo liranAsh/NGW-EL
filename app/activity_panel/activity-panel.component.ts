@@ -4,11 +4,12 @@
 import {Component} from 'angular2/core';
 import {WindowButtonsComponent} from  '../window_buttons/window_buttons.component';
 import {ActivityService} from '../services/activity_service';
+import {TopSlidingDrawer} from '../top_sliding_drawer/top-sliding-drawer.component';
 
 @Component({
     selector: 'activity-panel',
     templateUrl: 'app/activity_panel/activity-panel.component.html',
-    directives: [WindowButtonsComponent],
+    directives: [WindowButtonsComponent, TopSlidingDrawer],
     styles: [`
     .topPanel {
         position: fixed;
@@ -25,18 +26,18 @@ import {ActivityService} from '../services/activity_service';
 })
 export class ActivityPanelComponent {
     arrActivityMissions: any;
+    maxSizeDisplayMissions: number;
     example: any;
 
     constructor(activityService: ActivityService) {
         this.arrActivityMissions = activityService.getActivityMissions();
+        this.maxSizeDisplayMissions = 5;
         this.example = [
             {
                 id: "mission1",
                 iconClass: "zmdi zmdi-flower-alt"
             }
         ]
-
-        debugger;
     }
 
 }

@@ -3,25 +3,39 @@
  */
 import {Component} from 'angular2/core';
 import BrowserWindow = Electron.BrowserWindow;
-debugger;
-var browserWindowInstance : BrowserWindow = require('remote').getCurrentWindow();
 
 @Component({
     selector: 'window-buttons',
-    templateUrl: 'app/window_buttons/window_buttons.component.html'
+    templateUrl: 'app/window_buttons/window_buttons.component.html',
+    styles: [
+        `.windowButton {
+                color: white;
+                text-align: -webkit-center;
+                margin-top: 0.5vh;
+                position:relative;
+            }`
+    ]
 })
 export class WindowButtonsComponent {
 
+    browserWindowInstance : BrowserWindow;
+    //browserWindowInstance : any;
+
+    constructor() {
+        this.browserWindowInstance = require('remote').getCurrentWindow();
+        //this.browserWindowInstance = {};
+    }
+
     toggleResize() : void {
         debugger;
-        (browserWindowInstance.isMaximized()) ? browserWindowInstance.unmaximize() : browserWindowInstance.maximize();
+        (this.browserWindowInstance.isMaximized()) ? this.browserWindowInstance.unmaximize() : this.browserWindowInstance.maximize();
     }
 
     close() : void {
-        browserWindowInstance.close();
+        this.browserWindowInstance.close();
     }
 
     minimize() : void {
-        browserWindowInstance.minimize();
+        this.browserWindowInstance.minimize();
     }
 }

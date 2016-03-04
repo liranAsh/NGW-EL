@@ -5,6 +5,48 @@
 
     <div drawer>
         <h1>drawer section</h1>
+
+        <div role="listbox">
+
+            <div *ngFor="#item of categories">
+                <menu-item [item]="item"></menu-item>
+            </div>
+
+            <!--<a class="paper-item-link" href="#inbox" tabindex="-1">-->
+                <!--<paper-icon-item>-->
+                    <!--<paper-ripple></paper-ripple>-->
+                    <!--<iron-icon icon="inbox" item-icon></iron-icon>-->
+                    <!--Inbox-->
+                <!--</paper-icon-item>-->
+            <!--</a>-->
+            <!--<menu-item></menu-item>-->
+
+
+            <!--<a class="paper-item-link" href="#star" tabindex="-1">-->
+                <!--<paper-icon-item>-->
+                    <!--<paper-ripple></paper-ripple>-->
+                    <!--<iron-icon icon="star" item-icon></iron-icon>-->
+                    <!--Starred-->
+                <!--</paper-icon-item>-->
+            <!--</a>-->
+
+            <!--<a class="paper-item-link" href="#avatarblue" tabindex="-1">-->
+                <!--<paper-icon-item>-->
+                    <!--<paper-ripple></paper-ripple>-->
+                    <!--<iron-icon icon="inbox" item-icon></iron-icon>-->
+                    <!--Alphonso Engelking-->
+                <!--</paper-icon-item>-->
+            <!--</a>-->
+
+            <!--<a class="paper-item-link" href="#avatar" tabindex="-1">-->
+                <!--<paper-icon-item>-->
+                    <!--<paper-ripple></paper-ripple>-->
+                    <!--<iron-icon icon="star" item-icon></iron-icon>-->
+                    <!--Angela Decker-->
+                <!--</paper-icon-item>-->
+            <!--</a>-->
+        </div>
+
     </div>
 
     <div main>

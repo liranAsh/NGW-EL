@@ -2,53 +2,17 @@
 
     <div class="flex-2">
         <div class="layout horizontal">
-            <div *ngFor="#mission of arrActivityMissions | slice:0:6" class="flex-1">
-
-                    <i id="{{mission.id}}" class="{{mission.iconClass}}"></i>
-                    <paper-tooltip position="left" animation-delay="0" for="{{mission.id}}">{{mission.tooltipText}}</paper-tooltip>
-
+            <div *ngFor="#mission of arrActivityMissions | slice:0:maxSizeDisplayMissions" class="flex-1">
+                <i id="{{mission.id}}" class="{{mission.iconClass}}"></i>
+                <paper-tooltip position="left" animation-delay="0" for="{{mission.id}}">{{mission.tooltipText}}</paper-tooltip>
             </div>
-
-            <!--<div class="flex-1">-->
-                <!--<i id="flowerIcon1" class="zmdi zmdi-flower-alt"></i>-->
-                <!--<paper-tooltip position="left" animation-delay="0" for="flowerIcon1">Tooltip text</paper-tooltip>-->
-            <!--</div>-->
-            <!--<div class="flex-1">-->
-                <!--<i id="flowerIcon2" class="zmdi zmdi-flower-alt"></i>-->
-                <!--<paper-tooltip position="left" animation-delay="0" for="flowerIcon2">Tooltip text2</paper-tooltip>-->
-            <!--</div>-->
-            <!--<div class="flex-1">-->
-                <!--<i id="flowerIcon3" class="zmdi zmdi-flower-alt"></i>-->
-                <!--<paper-tooltip position="left" animation-delay="0" for="flowerIcon3">Tooltip text3</paper-tooltip>-->
-            <!--</div>-->
-            <!--<div class="flex-1">-->
-                <!--<i id="flowerIcon4" class="zmdi zmdi-flower-alt"></i>-->
-                <!--<paper-tooltip position="left" animation-delay="0" for="flowerIcon4">Tooltip text4</paper-tooltip>-->
-            <!--</div>-->
-            <!--<div class="flex-1">-->
-                <!--<i id="flowerIcon5" class="zmdi zmdi-flower-alt"></i>-->
-                <!--<paper-tooltip position="left" animation-delay="0" for="flowerIcon5">Tooltip text5</paper-tooltip>-->
-            <!--</div>-->
-            <!--<div class="flex-1">-->
-                <!--<i id="flowerIcon6" class="zmdi zmdi-flower-alt"></i>-->
-                <!--<paper-tooltip position="left" animation-delay="0" for="flowerIcon6">Tooltip text6</paper-tooltip>-->
-            <!--</div>-->
-            <!--<div class="flex-1">-->
-                <!--<i id="flowerIcon7" class="zmdi zmdi-flower-alt"></i>-->
-                <!--<paper-tooltip position="left" animation-delay="0" for="flowerIcon7">Tooltip text7</paper-tooltip>-->
-            <!--</div>-->
-            <!--<div class="flex-1">-->
-                <!--<i id="flowerIcon8" class="zmdi zmdi-flower-alt"></i>-->
-                <!--<paper-tooltip position="left" animation-delay="0" for="flowerIcon8">Tooltip text8</paper-tooltip>-->
-            <!--</div>-->
+            <div *ngIf="arrActivityMissions.length > maxSizeDisplayMissions">... ({{arrActivityMissions.length}})</div>
         </div>
 
     </div>
     <div class="flex-3"></div>
     <div class="flex-1">
-        <div>
-            open btn
-        </div>
+        <top-sliding-drawer></top-sliding-drawer>
     </div>
     <div class="flex-5"></div>
     <window-buttons class="flex-1"></window-buttons>

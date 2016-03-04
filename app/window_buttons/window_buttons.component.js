@@ -9,32 +9,36 @@ System.register(['angular2/core'], function(exports_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var BrowserWindow, browserWindowInstance, WindowButtonsComponent;
+    var BrowserWindow, WindowButtonsComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            debugger;
-            browserWindowInstance = require('remote').getCurrentWindow();
             WindowButtonsComponent = (function () {
+                //browserWindowInstance : any;
                 function WindowButtonsComponent() {
+                    this.browserWindowInstance = require('remote').getCurrentWindow();
+                    //this.browserWindowInstance = {};
                 }
                 WindowButtonsComponent.prototype.toggleResize = function () {
                     debugger;
-                    (browserWindowInstance.isMaximized()) ? browserWindowInstance.unmaximize() : browserWindowInstance.maximize();
+                    (this.browserWindowInstance.isMaximized()) ? this.browserWindowInstance.unmaximize() : this.browserWindowInstance.maximize();
                 };
                 WindowButtonsComponent.prototype.close = function () {
-                    browserWindowInstance.close();
+                    this.browserWindowInstance.close();
                 };
                 WindowButtonsComponent.prototype.minimize = function () {
-                    browserWindowInstance.minimize();
+                    this.browserWindowInstance.minimize();
                 };
                 WindowButtonsComponent = __decorate([
                     core_1.Component({
                         selector: 'window-buttons',
-                        templateUrl: 'app/window_buttons/window_buttons.component.html'
+                        templateUrl: 'app/window_buttons/window_buttons.component.html',
+                        styles: [
+                            ".windowButton {\n                color: white;\n                text-align: -webkit-center;\n                margin-top: 0.5vh;\n                position:relative;\n            }"
+                        ]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], WindowButtonsComponent);

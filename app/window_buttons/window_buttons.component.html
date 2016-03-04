@@ -1,9 +1,15 @@
 
 <div class="layout horizontal">
 
-    <div class="flex-3"></div>
-    <i (click)="minimize()" class="flex-3 center zmdi zmdi-window-minimize"></i>
-    <i (click)="toggleResize()" class="flex-3 zmdi zmdi-window-restore"></i>
-    <i (click)="close()" class="flex-3 zmdi zmdi-hc-1x zmdi-close"></i>
+    <i (click)="minimize()" class="flex-3 center zmdi zmdi-window-minimize windowButton">
+        <paper-ripple></paper-ripple>
+    </i>
+    <i (click)="toggleResize()" class="flex-3 zmdi windowButton"
+       [ngClass]="{'zmdi-window-restore': browserWindowInstance.isMaximized(), 'zmdi-window-maximize': !browserWindowInstance.isMaximized()}">
+        <paper-ripple></paper-ripple>
+    </i>
+    <i id="closeWindowButton" (click)="close()" class="flex-3 zmdi zmdi-hc-1x zmdi-close windowButton">
+        <paper-ripple></paper-ripple>
+    </i>
 
 </div>
