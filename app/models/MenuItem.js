@@ -12,7 +12,11 @@ System.register([], function(exports_1) {
                     this.bIsCollapse = bIsCollapse;
                     this.link = link;
                     this.iconName = iconName;
+                    this.menuItems = [];
                 }
+                MenuItem.prototype.addMenuItem = function (item) {
+                    this.menuItems.push(item);
+                };
                 return MenuItem;
             })();
             exports_1("MenuItem", MenuItem);

@@ -52,8 +52,7 @@
     <div main>
         <activity-panel></activity-panel>
         <paper-toolbar class="main">
-            <paper-icon-button icon="menu" (click)="toggleDrawer()" ></paper-icon-button>
-
+            <paper-icon-button icon="menu" (click)="toggleDrawer()" [hidden]="drawer?.selected == 'drawer'"></paper-icon-button>
         </paper-toolbar>
 
         <div>

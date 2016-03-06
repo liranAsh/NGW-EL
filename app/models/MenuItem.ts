@@ -15,9 +15,10 @@ export class MenuItem {
         this.bIsCollapse = bIsCollapse;
         this.link = link;
         this.iconName = iconName;
+        this.menuItems = [];
     }
 
-    addMenuItem(MenuItem: item) {
+    addMenuItem(item: MenuItem) {
         this.menuItems.push(item);
     }
 }

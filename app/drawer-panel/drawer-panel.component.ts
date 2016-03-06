@@ -17,16 +17,28 @@ export class DrawerPanelComponent{
 
     categories: MenuItem[];
     activityService: any;
+    drawer: any;
+    bIsDrawerOpen: boolean = false;
+
     constructor(activity_service: ActivityService) {
         this.activityService = activity_service;
-        debugger;
+
         this.initialCategories();
     }
 
     toggleDrawer() : void {
-        var drawer : any = document.querySelector("#menuDrawerPanel");
 
-        drawer.togglePanel();
+        if(this.drawer === undefined || this.drawer === null) {
+            debugger;
+            this.drawer = document.querySelector("#menuDrawerPanel");
+
+            this.drawer.addEventListener("iron-select", () =>
+            {
+                var justMakingAngularDirtyCheckIfDrawerIsOpen = -999;
+            });
+        }
+
+        this.drawer.togglePanel();
     }
 
     clickMethod() {
@@ -35,12 +47,18 @@ export class DrawerPanelComponent{
 
     initialCategories() {
         this.categories = [];
-        var item1: MenuItem = new MenuItem("start", false, "inbox", "#start");
-        var item2: MenuItem = new MenuItem("machines", false, "star", "#machines");
-        var item3: MenuItem = new MenuItem("last missions", true, "inbox");
-        var item4: MenuItem = new MenuItem("last missions", true, "inbox");
-        var item5: MenuItem = new MenuItem("Angela Decker", false, "star", "#avatar");
+        var startItem: MenuItem = new MenuItem("start", false, "inbox", "#start");
+        var machinesItem: MenuItem = new MenuItem("machines", false, "star", "#machines");
+        var lastMissionsItem: MenuItem = new MenuItem("last missions", true, "inbox");
+        var favoritesItem: MenuItem = new MenuItem("favoritessss", true, "inbox");
+        var logOperationsItem: MenuItem = new MenuItem("log operations", false, "star", "#avatar");
 
-        this.categories.push(item1, item2, item3, item4, item5);
+        // Missions
+        var mission1: MenuItem = new MenuItem("mission 1", false, "inbox", "#mission1");
+        var mission2: MenuItem = new MenuItem("mission 2", false, "inbox", "#mission2");
+        lastMissionsItem.addMenuItem(mission1);
+        lastMissionsItem.addMenuItem(mission2);
+
+        this.categories.push(startItem, machinesItem, lastMissionsItem, favoritesItem, logOperationsItem);
     }
 }
