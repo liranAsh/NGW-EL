@@ -18,13 +18,31 @@ System.register(['angular2/core'], function(exports_1) {
         execute: function() {
             TopSlidingDrawer = (function () {
                 function TopSlidingDrawer() {
+                    this.isDropDownOpen = false;
                 }
+                TopSlidingDrawer.prototype.whenClickDropdownOpen = function () {
+                    this.isDropDownOpen = !this.isDropDownOpen;
+                    this.closeContainerWhenClickOutside(this);
+                };
+                TopSlidingDrawer.prototype.closeContainerWhenClickOutside = function (thisComp) {
+                    var self = thisComp;
+                    var eventWhenMouseUp = function (e) {
+                        var container = $("#bodyDropDown");
+                        if (!container.is(e.target) // if the target of the click isn't the container...
+                            && container.has(e.target).length === 0) {
+                            self.isDropDownOpen = !self.isDropDownOpen;
+                            $(document).unbind('mouseup');
+                        }
+                    };
+                    // JQuery code
+                    $(document).mouseup(eventWhenMouseUp);
+                };
                 TopSlidingDrawer = __decorate([
                     core_1.Component({
                         selector: 'top-sliding-drawer',
                         templateUrl: 'app/top_sliding_drawer/top-sliding-drawer.component.html',
                         directives: [],
-                        styles: []
+                        styles: ["\n        .dropdown-screen {\n            background-color: grey;\n            width: 100vw;\n        }\n    "]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], TopSlidingDrawer);

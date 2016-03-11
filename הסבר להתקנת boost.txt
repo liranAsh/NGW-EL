@@ -1,0 +1,43 @@
+הסבר להתקנת boost על מחשב windows עם visual studio 2015 update 1:
+
+1. להוריד boost 1.58
+2. לפתוח "Developer Command Prompt for Visual Studio" ולגשת לתיקייה שבה חילנו את ה boost.
+3. להריץ: bootstrap.bat
+4. להריץ: b2 toolset=msvc-14.0 --build-type=complete --abbreviate-paths architecture=x86 address-model=64 install -j4
+5. נפתח פרויקט של win32 c++ -> חשוב שהפרוייקט יהיה מיועד ל 32BIT בהגדרות הפלטפורמה.
+6. לחיצה ימנית על הפרויקט:
+Properties -> C/C++ -> General -> Additional Include Directories
+נכניס לשם את הנתיב לתיקייה שחילצנו.
+7. בתוך Properties נעבור ל Link ושם נכניס ל Additional Library Directories את C:\..OriginalPathToBoost\stage\lib
+8. בתוך Properties נעבור ל C/C++ -> Precompiled Headers ונשנה את Use Precompiled Header ל Not Using Precompiled Headers.
+9. הגדרה של C:\..OriginalPathToBoost\config\compiler\visualc.hpp במקום: 
+// last known and checked version is 19.00.22129 (VC14 Preview):
+#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190022310)
+
+להחליף ל:
+// last known and checked version is 19.00.22816 (VC++ 2015 RC):
+#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190022816)
+which you can find is already done in boost repo here for upcoming Boost 1.59 release.
+
+Update: For Visual Studio 2015 RTM set it to:
+
+// last known and checked version is 19.00.23026 (VC++ 2015):
+#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190023026)
+Update2: For Visual Studio 2015 Update 1 set it to:
+
+// last known and checked version is 19.00.23506 (VC++ 2015 Update 1):
+#if (_MSC_VER > 1800 && _MSC_FULL_VER > 190023506)
+
+
+הסבר להוספת UHD:
+1. Properties -> C/ C++ -> General -> Additional Include Directories, ולשם להוסיף את הנתיב להתקנת הUHD/include לדוגמה:
+C:\Program Files (x86)\UHD\include
+2. Properties -> Linker -> General -> Additional Library Directories, ולשם להוסיף את הנתיב להתקנת ה UHD/lib לדוגמה: 
+C:\Program Files (x86)\UHD\lib
+
+לא בטוח שצריך לעשות(כנראה שלא):
+3. Properties -> Linker -> Input -> Additional Dependencies, ולשם להוסיף את הנתיב המלא(כולל שם קובץ וסיומת) של uhd.lib לדוגמה:
+C:\Program Files (x86)\UHD\lib\uhd.lib
+4. אם יש שגיאה עם '_SCL_SECURE_NO_WARNINGS' יש להוסיף את המילה הזו ל Properties -> C/C++ -> Proccessors בערך Proccessors Definitions
+
+חשוב!! להוריד UHD 32BIT

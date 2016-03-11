@@ -53,6 +53,11 @@
         <activity-panel></activity-panel>
         <paper-toolbar class="main">
             <paper-icon-button icon="menu" (click)="toggleDrawer()" [hidden]="drawer?.selected == 'drawer'"></paper-icon-button>
+
+            <paper-tabs selected="0" class="bottom self-end" style="width: 300px;">
+                <paper-tab>ITEM ONE</paper-tab>
+                <paper-tab>ITEM TWO</paper-tab>
+            </paper-tabs>
         </paper-toolbar>
 
         <div>

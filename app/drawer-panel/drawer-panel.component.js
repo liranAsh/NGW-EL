@@ -32,15 +32,13 @@ System.register(['angular2/core', '../activity_panel/activity-panel.component', 
             }],
         execute: function() {
             DrawerPanelComponent = (function () {
-                function DrawerPanelComponent(activity_service) {
+                function DrawerPanelComponent(activityService) {
+                    this.activityService = activityService;
                     this.bIsDrawerOpen = false;
-                    this.activityService = activity_service;
                     this.initialCategories();
                 }
                 DrawerPanelComponent.prototype.toggleDrawer = function () {
-                    var self = this;
                     if (this.drawer === undefined || this.drawer === null) {
-                        debugger;
                         this.drawer = document.querySelector("#menuDrawerPanel");
                         this.drawer.addEventListener("iron-select", function () {
                             var justMakingAngularDirtyCheckIfDrawerIsOpen = -999;

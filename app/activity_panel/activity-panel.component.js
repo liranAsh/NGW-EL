@@ -41,7 +41,7 @@ System.register(['angular2/core', '../window_buttons/window_buttons.component', 
                         selector: 'activity-panel',
                         templateUrl: 'app/activity_panel/activity-panel.component.html',
                         directives: [window_buttons_component_1.WindowButtonsComponent, top_sliding_drawer_component_1.TopSlidingDrawer],
-                        styles: ["\n    .topPanel {\n        position: fixed;\n        width: 100vw;\n        height: 5.5vh;\n        background-color: #1A237E;\n        opacity: 0.9;\n        padding: 0;\n        margin: 0;\n        top: 0;\n        right: 0;\n    }\n    "]
+                        styles: ["\n    .topPanel {\n        position: relative;\n        width: 100vw;\n        height: 5.5vh;\n        background-color: #1A237E;\n        opacity: 0.9;\n        padding: 0;\n        margin: 0;\n        top: 0;\n        right: 0;\n        z-index:2;\n    }\n    "]
                     }), 
                     __metadata('design:paramtypes', [activity_service_1.ActivityService])
                 ], ActivityPanelComponent);

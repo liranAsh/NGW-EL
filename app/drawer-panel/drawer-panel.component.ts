@@ -15,23 +15,19 @@ import {MenuItemComponent} from '../menu_item/menu-item.component';
 })
 export class DrawerPanelComponent{
 
-    categories: MenuItem[];
-    activityService: any;
-    drawer: any;
-    bIsDrawerOpen: boolean = false;
+    public categories: MenuItem[];
+    public drawer: any;
+    public bIsDrawerOpen: boolean = false;
 
-    constructor(activity_service: ActivityService) {
-        this.activityService = activity_service;
+    constructor(private activityService: ActivityService) {
 
         this.initialCategories();
     }
 
     toggleDrawer() : void {
-
         if(this.drawer === undefined || this.drawer === null) {
-            debugger;
-            this.drawer = document.querySelector("#menuDrawerPanel");
 
+            this.drawer = document.querySelector("#menuDrawerPanel");
             this.drawer.addEventListener("iron-select", () =>
             {
                 var justMakingAngularDirtyCheckIfDrawerIsOpen = -999;

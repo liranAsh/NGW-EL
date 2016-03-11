@@ -1,1 +1,21 @@
-<div>click me</div>
+<div (click)="whenClickDropdownOpen()">
+    <div *ngIf="!isDropDownOpen">Click me</div>
+    <div *ngIf="isDropDownOpen">התראות</div>
+</div>
+
+<div id="bodyDropDown" [ngClass]="{'dropdown-screen': isDropDownOpen, disabled: !isDropDownOpen}">
+    <ul [hidden]="!isDropDownOpen">
+        <!-- Create a bunch, or not a bunch, of li's to see the timing. -->
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+    </ul>
+</div>
+
+
+
+
+
+

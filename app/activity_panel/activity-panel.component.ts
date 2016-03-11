@@ -12,7 +12,7 @@ import {TopSlidingDrawer} from '../top_sliding_drawer/top-sliding-drawer.compone
     directives: [WindowButtonsComponent, TopSlidingDrawer],
     styles: [`
     .topPanel {
-        position: fixed;
+        position: relative;
         width: 100vw;
         height: 5.5vh;
         background-color: #1A237E;
@@ -21,6 +21,7 @@ import {TopSlidingDrawer} from '../top_sliding_drawer/top-sliding-drawer.compone
         margin: 0;
         top: 0;
         right: 0;
+        z-index:2;
     }
     `]
 })
